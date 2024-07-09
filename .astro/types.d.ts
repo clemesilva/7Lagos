@@ -449,36 +449,14 @@ declare module 'astro:content' {
   data: InferEntrySchema<"insights">
 } & { render(): Render[".md"] };
 };
-"products": {
-"a765.md": {
-	id: "a765.md";
-  slug: "lampara-puyehue";
+"products": Record<string, {
+  id: string;
+  slug: string;
   body: string;
   collection: "products";
-  data: InferEntrySchema<"products">
-} & { render(): Render[".md"] };
-"b203.md": {
-	id: "b203.md";
-  slug: "lampara-torres-del-paine";
-  body: string;
-  collection: "products";
-  data: InferEntrySchema<"products">
-} & { render(): Render[".md"] };
-"f303.md": {
-	id: "f303.md";
-  slug: "lampara-villarrica";
-  body: string;
-  collection: "products";
-  data: InferEntrySchema<"products">
-} & { render(): Render[".md"] };
-"t845.md": {
-	id: "t845.md";
-  slug: "lampara-curihuen";
-  body: string;
-  collection: "products";
-  data: InferEntrySchema<"products">
-} & { render(): Render[".md"] };
-};
+  data: InferEntrySchema<"products">;
+  render(): Render[".md"];
+}>;
 
 	};
 

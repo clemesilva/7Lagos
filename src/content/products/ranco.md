@@ -1,14 +1,14 @@
 ---
-title: "Lámpara Curihuen"
-description: "Lámpara Curihuen"
-price: 70
+title: "Lámpara Lago Ranco"
+description: "Lámpara Lago Ranco"
+price: 85990
 main:
-  id: 2
+  id: 3
   content: |
-    Presentamos la Lámpara Curihuen – una obra maestra de iluminación artesanal. Cada lámpara es meticulosamente creada por hábiles artesanos, utilizando madera reciclada para traer un toque de naturaleza a tu hogar. No se utilizan metales, asegurando un producto sostenible y ecológico.
-  imgCard: "@/images/catalogo/Catalogo1.JPG"
-  imgMain: "@/images/catalogo/Catalogo1.JPG"
-  imgAlt: "Lámpara Curihuen con base de madera artesanal"
+    Presentamos la Lámpara Lago Ranco – una obra maestra de iluminación artesanal. Cada lámpara es meticulosamente creada por hábiles artesanos, utilizando madera reciclada para traer un toque de naturaleza a tu hogar. No se utilizan metales, asegurando un producto sostenible y ecológico.
+  imgCard: "@/images/ranco.jpg"
+  imgMain: "@/images/ranco.jpg"
+  imgAlt: "Lámpara Lago Ranco con base de madera artesanal"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
@@ -22,7 +22,7 @@ tabs:
 longDescription:
   title: "Soluciones de Iluminación Artesanales"
   subTitle: |
-    La Lámpara Curihuen ofrece una combinación única de arte y sostenibilidad. Hecha de madera reciclada y elaborada por manos expertas, esta lámpara no es solo una fuente de luz, sino una declaración de vida ecológica.
+    La Lámpara Lago Ranco ofrece una combinación única de arte y sostenibilidad. Hecha de madera reciclada y elaborada por manos expertas, esta lámpara no es solo una fuente de luz, sino una declaración de vida ecológica.
   btnTitle: "Contactar ventas para saber más"
   btnURL: "#"
 descriptionList:
@@ -38,7 +38,7 @@ specificationsLeft:
   - title: "Artesanía"
     subTitle: "Hecho a mano por artesanos expertos"
   - title: "Altura"
-    subTitle: "71 cm (incluyendo pantalla)"
+    subTitle: "71 cm (incluye pantalla)"
   - title: "Pantalla"
     subTitle: "38x20 cm"
 specificationsRight:
@@ -51,7 +51,7 @@ specificationsRight:
   - title: "Aplicaciones"
     subTitle: "Perfecta para salas de estar, dormitorios y oficinas que buscan un toque natural"
 blueprints:
-  first: "@/images/catalogo/Catalogo1.JPG"
-  second: "@/images/catalogo/Catalogo1.JPG"
-slug: lampara-curihuen  
+  first: "@/images/ranco.jpg"
+  second: "@/images/ranco.jpg"
+slug: lampara-lago-ranco
 ---

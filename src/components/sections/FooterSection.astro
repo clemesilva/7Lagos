@@ -14,7 +14,7 @@ import SocialIcons from "../ui/buttons/SocialIcons";
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
 
 // Define the variables that will be used in this component
-const sectionThreeTitle: string = Astro.currentLocale === "fr" ? "Rester à jour" : "Stay up to date";
+const sectionThreeTitle: string = Astro.currentLocale === "fr" ? "Rester à jour" : "Mantente actualizado";
 const sectionThreeContent: string = Astro.currentLocale === "fr" ? "Restez informé des derniers outils et des offres exclusives." :
   "Mantente al tanto de 7Lagos";
 const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafted by";
@@ -30,7 +30,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
       </div>
       {strings.footerLinks.map((section) => (
         <div class="col-span-1">
-          <h3 class="font-bold text-black dark:text-neutral-200">{section.section}</h3>
+          <h3 class="font-bold text-white dark:text-neutral-200">{section.section}</h3>
           <ul class="mt-3 grid space-y-3">
             {section.links.map((link, index) => (
               <li>
@@ -49,7 +49,7 @@ const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafte
         </div>
       ))}
       <div class="col-span-2">
-        <h3 class="font-bold text-black dark:text-neutral-200">{sectionThreeTitle}</h3>
+        <h3 class="font-bold text-white dark:text-neutral-200">{sectionThreeTitle}</h3>
         <form>
           <EmailFooterInput />
           <p class="mt-3 text-sm text-white dark:text-black">{sectionThreeContent}</p>
