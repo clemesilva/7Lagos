@@ -1,0 +1,88 @@
+---
+// Import the necessary dependencies
+import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
+import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
+import enStrings from "@utils/navigation.ts";
+import frStrings from "@utils/fr/navigation.ts";
+import Icon from "@components/ui/icons/Icon.astro";
+import BrandLogo from "@components/BrandLogo.astro";
+import { SITE } from "@data/constants";
+import SocialIcons from "../ui/buttons/SocialIcons";
+
+
+// Select the correct translation based on the page's lang prop:
+const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
+
+// Define the variables that will be used in this component
+const sectionThreeTitle: string = Astro.currentLocale === "fr" ? "Rester à jour" : "Stay up to date";
+const sectionThreeContent: string = Astro.currentLocale === "fr" ? "Restez informé des derniers outils et des offres exclusives." :
+  "Mantente al tanto de 7Lagos";
+const crafted: string = Astro.currentLocale === "fr" ? "Fabriqué par" : "Crafted by";
+---
+
+
+<footer class="w-full bg-[#2F2F2F] dark:bg-neutral-900">
+  <div class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-screen-2xl">
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
+      <div class="col-span-full lg:col-span-1">
+        <!-- Brand Logo -->
+        <img src="/src/images/LogoOficial.png" class="h-auto w-32" />
+      </div>
+      {strings.footerLinks.map((section) => (
+        <div class="col-span-1">
+          <h3 class="font-bold text-black dark:text-neutral-200">{section.section}</h3>
+          <ul class="mt-3 grid space-y-3">
+            {section.links.map((link, index) => (
+              <li>
+                <a
+                  href={link.url}
+                  class="inline-flex gap-x-2 rounded-lg text-white outline-none ring-zinc-500 transition duration-300 hover:text-black focus-visible:ring dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-none"
+                >
+                  {link.name}
+                </a>
+                {section.section === "Company" && index === 2 ? (
+                  <span class="ms-1 inline rounded-lg bg-white px-2 py-1 text-xs font-bold text-">We're hiring!</span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      <div class="col-span-2">
+        <h3 class="font-bold text-black dark:text-neutral-200">{sectionThreeTitle}</h3>
+        <form>
+          <EmailFooterInput />
+          <p class="mt-3 text-sm text-white dark:text-black">{sectionThreeContent}</p>
+        </form>
+      </div>
+    </div>
+    <div class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0">
+      <div class="flex items-center justify-between">
+        <p class="text-sm text-white dark:text-neutral-400">
+          © <span id="current-year">Creada por </span>
+          <a
+            class="rounded-lg font-medium underline underline-offset-2 outline-none ring-white transition duration-300 hover:text-white hover:decoration-dashed focus:outline-none focus-visible:ring dark:ring-zinc-200 dark:hover:text-neutral-300"
+            
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ClementeS
+          </a>.
+
+        </p>
+
+      </div>
+      <div class="inline-flex space-x-8 mr-28">
+        <div class="h-8 w-8 text-white">
+          <a href="https://api.whatsapp.com/send?phone=+56992767530&text=Hola%2C%20tengo%20una%20duda%20acerca%20de%207Lagos" target="_blank">
+            <SocialIcons icon="whatsapp"/>
+          </a>
+        </div>
+        <div class="h-8 w-8 text-white">
+          <a href="https://www.instagram.com/7lagosdeco/">  <SocialIcons icon= "instagram"/> </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

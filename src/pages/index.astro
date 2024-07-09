@@ -1,0 +1,141 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import ClientsSection from "@components/sections/landing/ClientsSection.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import FAQ from "@components/sections/FAQ.astro";
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+import heroImage from "@images/hero-image.avif";
+import faqs from "@data/faqs.json";
+import features from "@data/features.json";
+import pricing from "@data/pricing.json";
+import featureImage from "@images/features-image.avif";
+import LamparaCalida from "@images/LamparaCalida.jpeg";
+import LamparaComedor from "@images/LamparaComedor.jpeg";
+import VariedadLamparas from "@images/VariedadLamparas.jpeg";
+import LamparaPlaya2 from "@images/LamparaPlaya2.jpeg";
+import maderaEnCasa from "@images/maderaEnCasa.jpeg";
+
+const avatarSrcs: Array<string> = [
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+---
+
+<MainLayout>
+
+  <HeroSection
+    title=`Dale un estilo Rústico a tu hogar con  <span
+        class="text-[#bc6c25] dark:text-yellow-400">7Lagos</span>`
+    subTitle="Decorándolo con maderas artesanales recogidas del fondo del mar"
+    primaryBtn="Ir al Catálogo"
+    primaryBtnURL="/products"
+    secondaryBtn="Contáctanos"
+    secondaryBtnURL="/contact"
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4.8</span> / 5`
+    starCount={4}
+    reviews=`Más de  <span class="font-bold">1.k</span> Reseñas`
+    src={maderaEnCasa}
+    
+    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+  />
+  <hr class="border-solid border-[#8B572A]">
+
+  <PricingSection pricing={pricing} />
+
+  <hr class="border-solid border-[#8B572A]">
+  <FeaturesGeneral
+    title="Atendiendo las Demandas del Mercado"
+    subTitle="En 7Lagos, enfrentamos los desafíos únicos del sector de la decoración con madera. Desde piezas artesanales hasta servicios expertos, estamos dedicados a ayudarte a superar obstáculos y lograr tus objetivos."
+    src={LamparaPlaya2}
+    alt="ScrewFast products in floating boxes"
+    features={features}
+  />
+
+
+  
+
+  <FeaturesNavs
+    title=`Descubre que ofrece <span class="text-[#8B572A] dark:text-yellow-400">7Lagos</span>`
+    tabs={[
+      {
+        heading: "Estilo rústico",
+        content:
+          "Transforma tu hogar con las maderas artesanales de 7Lagos, recogidas del fondo de los lagos chilenos. Cada pieza única aporta rusticidad y carácter a cualquier espacio.",
+        svg: "wood",
+        src:  LamparaComedor,
+        alt: "Imagen de maderas artesanales recogidas del fondo del lago",
+        first: true,
+      },
+      {
+        heading: "Diseños Personalizados",
+        content:
+          "Disfruta de diseños únicos y personalizados que reflejan la belleza y la historia de las maderas antiguas. Las lámparas y decoraciones hechas a mano son el complemento perfecto para cualquier hogar.",
+        svg: "design",
+        src: VariedadLamparas,
+        alt: "Imagen de diseños personalizados en madera",
+        second: true,
+      },
+      {
+        heading: "Calidad y Sostenibilidad",
+        content:
+          "Apuesta por la sostenibilidad con nuestras maderas recuperadas de forma responsable. En 7Lagos, combinamos calidad superior con un enfoque ecológico para ofrecerte productos duraderos y respetuosos con el medio ambiente.",
+        svg: "quality",
+        src: LamparaCalida,
+        alt: "Imagen de madera recuperada y sostenibilidad",
+      },
+    ]}
+/>
+
+
+<TestimonialsSection
+title="Confía en 7Lagos"
+subTitle="Atrevete y diseña tu hogar como tu quieras con nosotros"
+testimonials={[
+  {
+    content:
+      "7Lagos ha mejorado drásticamente la eficiencia de nuestro hogar. Le da un toque sureño y rústico a nuestro hogar, sintiendo lo que sentimos cuando nos vamos al sur de Chile",
+    author: "Nicolas Pirozzi",
+    role: "Gerente de Proyectos | EcoConstruye S.A.",
+    avatarSrc:
+      "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+]}
+statistics={[
+  {
+    count: "100+",
+    description:
+      "clientes satisfechos con nuestras maderas artesanales recicladas",
+  },
+  {
+    count: "50%",
+    description:
+      "aumento en la eficiencia de la producción utilizando madera",
+  },
+  {
+    count: "20%",
+    description:
+      "reducción en los costos de mantenimiento gracias a nuestras soluciones ecológicas",
+  },
+  {
+    count: "3x",
+    description: "mayor durabilidad utilizando nuestras maderas artesanales",
+  },
+]}
+/>
+
+
+  
+
+
+
+</MainLayout>

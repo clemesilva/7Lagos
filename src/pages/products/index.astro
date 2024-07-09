@@ -1,0 +1,134 @@
+---
+// Importing necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+
+// Importing necessary functions from Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+// Fetching all the product related content and sorting it by main.id
+const product: CollectionEntry<"products">[] = (
+  await getCollection("products")
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id,
+);
+
+// Define variables for page content
+const title: string = "Productos";
+const subTitle: string =
+  "Descubre la rusticidad y durabilidad de los productos de madera de 7Lagos, diseñados para embellecer cualquier hogar. Cada uno de nuestros productos es elaborado a mano y construido para durar, asegurando que tengas la pieza perfecta para cada espacio.";
+
+// Datos de testimonios que se mostrarán en el componente
+const testimonials = [
+  // Primer testimonio
+  {
+    content:
+      " \"Desde que empecé a usar los productos de madera de 7Lagos, la calidad y el encanto rústico de mis proyectos de diseño han mejorado significativamente. La durabilidad y el acabado artesanal de cada pieza son simplemente incomparables. Es un placer trabajar con una empresa que entiende las demandas diarias de la industria.\" ",
+    author: "Benjamin Silva",
+    role: "Diseñador de Interiores | Espacios Creativos",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Descripción de la imagen",
+  },
+  // Segundo testimonio
+  {
+    content:
+      " \"Como carpintero profesional, siempre busco materiales de alta calidad que aporten un toque distintivo a mis proyectos. La colección de maderas artesanales de 7Lagos ha sido un cambio total para mis trabajos, proporcionando la mezcla perfecta de calidad y variedad. El excelente servicio al cliente fue simplemente la guinda del pastel!\" ",
+    author: "Agustín Ramello",
+    role: "Carpintero | Creaciones Únicas",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Descripción de la imagen",
+  },
+  // Tercer testimonio
+  {
+    content:
+      " \"He sido un carpintero profesional por más de 15 años, y puedo decir sinceramente que los productos de madera de 7Lagos son algunos de los mejores que he utilizado. Tienen una sujeción incomparable, y tengo plena confianza en cada junta y estructura. Además, el servicio es impecable – realmente se preocupan por el éxito de mi proyecto.\" ",
+    author: "Vicente Pirozzi",
+    role: "Maestro Carpintero | Maderas y Más",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Descripción de la imagen",
+  },
+];
+
+const pageTitle: string = `Productos | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/products",
+    "url": "https://screwfast.uk/products",
+    "name": "Hardware Tools | ScrewFast",
+    "description": "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://screwfast.uk",
+      "name": "ScrewFast",
+      "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title}
+        </h1>
+        {
+          subTitle && (
+            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+              {subTitle}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA title="Testimonios" url="#testimonials" noArrow={true} />
+    </div>
+    <!--Displaying products in alternating styles. Alternative product gets different card styling.-->
+    <!--Maps through all product entries and displays them with either CardSmall or CardWide based on their position.-->
+    <section class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 xl:grid-cols-3 gap-6">
+      {
+        product.map((product, index) => {
+          const position = index % 4;
+          if (position === 0 || position === 3) {
+            return <CardSmall product={product} />;
+          } else {
+            return <CardWide product={product} />;
+          }
+        })
+      }
+    </section>
+    
+  </div>
+  <!--Features statistics section-->
+  <FeaturesStatsAlt
+    title="Porque 7Lagos?"
+    subTitle="Transforma tu idea en una experiecia única"
+    benefits={[
+      "Innovación",
+      "Autenticidad",
+      "Calidez",
+    ]}
+  />
+  <!--Testimonials section-->
+  <TestimonialsSectionAlt
+    title="Lo que nuestros consumidores dicen"
+    testimonials={testimonials}
+  />
+</MainLayout>

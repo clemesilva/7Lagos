@@ -1,0 +1,65 @@
+---
+import { addItem, getItems } from "../../utils/firebase/firebase.utils.js";
+
+// Variables para manejar el estado de los comentarios
+let comment = '';
+let comments = [];
+
+// Función para manejar el envío del formulario
+async function handleSubmit(e) {
+  e.preventDefault();
+  
+  try {
+    // Agregar el nuevo comentario a Firestore
+    await addItem({ comment }, { timestamp: new Date().toISOString() });
+  
+    // Limpiar el campo de entrada
+    comment = '';
+  
+    // Recuperar la lista actualizada de comentarios
+    comments = await getItems();
+
+    // Actualizar el DOM con los nuevos comentarios
+    updateCommentsList();
+  } catch (error) {
+    console.error("Error al agregar el comentario: ", error);
+  }
+}
+
+// Función para actualizar la lista de comentarios en el DOM
+function updateCommentsList() {
+  const commentsContainer = document.getElementById('comments-container');
+  commentsContainer.innerHTML = '';
+  comments.forEach((item) => {
+    const commentElement = document.createElement('div');
+    commentElement.innerHTML = `
+      <p>${item.comment}</p>
+      <p><small>${new Date(item.timestamp).toLocaleString()}</small></p>
+    `;
+    commentsContainer.appendChild(commentElement);
+  });
+}
+
+// Recuperar los comentarios iniciales al cargar
+(async function loadComments() {
+  try {
+    comments = await getItems();
+    updateCommentsList();
+  } catch (error) {
+    console.error("Error al cargar los comentarios: ", error);
+  }
+})();
+---
+
+<!-- Formulario para dejar comentarios -->
+<form onsubmit="handleSubmit(event)">
+  <label for="comment">Leave a comment:</label>
+  <textarea id="comment" oninput="comment = this.value"></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+<!-- Lista de comentarios -->
+<div>
+  <h2>Comments</h2>
+  <div id="comments-container"></div>
+</div>
