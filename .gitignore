@@ -11,6 +11,7 @@ benchmark/projects/
 benchmark/results/
 test-results/
 *.log
+.vercel.json
 
 .turbo/
 .eslintcache
