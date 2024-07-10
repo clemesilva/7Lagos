@@ -154,7 +154,6 @@ export default defineConfig({
       gzip: false,
       brotli: true,
     }),
-    react(),
   ],
   output: "server",
   experimental: {
