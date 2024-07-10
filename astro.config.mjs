@@ -156,7 +156,7 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: "static",
+  output: "server",
   experimental: {
     clientPrerender: true,
     directRenderScript: true,
