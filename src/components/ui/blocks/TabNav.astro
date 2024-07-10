@@ -30,7 +30,7 @@ Example:
 <!-- Tab button with dynamic class based on 'first' property, id, tab data, and aria-controls  -->
 <button
   type="button"
-  class={`${first ? "active " : ""}${BUTTON_CLASS} bg-[#F2E8D7] focus:outline-none focus:ring-2 focus:ring-[#bc6c25] focus:ring-opacity-50 active:bg-black hs-tab-active:bg-[#bc6c25]`}
+  class={`${first ? "active " : ""}${BUTTON_CLASS} bg-white focus:outline-none focus:ring-2 focus:ring-[#bc6c25] focus:ring-opacity-50 active:bg-black hs-tab-active:bg-[#F2E8D7`}
   id={id}
   data-hs-tab={dataTab}
   aria-controls={aria}
@@ -44,7 +44,7 @@ Example:
       <!-- Heading of the tab, changes color when active -->
       <span class="block text-lg font-bold text-neutral-800 hs-tab-active:text-black dark:text-neutral-200 dark:hs-tab-active:text-orange-300">{heading}</span>
       <!-- Content of the tab, changes color when active -->
-      <span class="mt-1 block text-neutral-600 hs-tab-active:text-white dark:text-neutral-400 dark:hs-tab-active:text-neutral-200">{content}</span>
+      <span class="mt-1 block text-neutral-600 hs-tab-active:text-[#8B572A] dark:text-neutral-400 dark:hs-tab-active:text-neutral-200">{content}</span>
     </span>
   </span>
 </button>

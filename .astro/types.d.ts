@@ -449,14 +449,106 @@ declare module 'astro:content' {
   data: InferEntrySchema<"insights">
 } & { render(): Render[".md"] };
 };
-"products": Record<string, {
-  id: string;
-  slug: string;
+"products": {
+"caburgua.md": {
+	id: "caburgua.md";
+  slug: "lampara-caburgua";
   body: string;
   collection: "products";
-  data: InferEntrySchema<"products">;
-  render(): Render[".md"];
-}>;
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"colico.md": {
+	id: "colico.md";
+  slug: "lampara-colico";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"curihuen.md": {
+	id: "curihuen.md";
+  slug: "lampara-curihuen";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"esculturariobueno.md": {
+	id: "esculturariobueno.md";
+  slug: "escultura-rio-bueno";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"esculturarionegro.md": {
+	id: "esculturarionegro.md";
+  slug: "escultura-rio-negro";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"maihue.md": {
+	id: "maihue.md";
+  slug: "lampara-maihue";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"neltume.md": {
+	id: "neltume.md";
+  slug: "lampara-neltume";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"puyehue.md": {
+	id: "puyehue.md";
+  slug: "lampara-puyehue";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"ranco.md": {
+	id: "ranco.md";
+  slug: "lampara-lago-ranco";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"rioblanco.md": {
+	id: "rioblanco.md";
+  slug: "escultura-hermandad";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"rionone.md": {
+	id: "rionone.md";
+  slug: "escultura-rio-none";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"riñihue.md": {
+	id: "riñihue.md";
+  slug: "lampara-riñihue";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"torresdelpaine.md": {
+	id: "torresdelpaine.md";
+  slug: "lampara-torres-del-paine";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+"villarrica.md": {
+	id: "villarrica.md";
+  slug: "lampara-villarrica";
+  body: string;
+  collection: "products";
+  data: InferEntrySchema<"products">
+} & { render(): Render[".md"] };
+};
 
 	};
 
